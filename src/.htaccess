@@ -1,0 +1,9 @@
+# назначение обработчиком .html страниц:
+Action parsed-html /cgi-bin/parser3.cgi
+AddHandler parsed-html .html
+
+# запрет на доступ к .cfg и .p файлам:
+<Files ~ "\.(p|cfg)$">
+    Order allow,deny
+    Deny from all
+</Files>
