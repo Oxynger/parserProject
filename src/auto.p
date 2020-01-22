@@ -1,5 +1,5 @@
 @auto[]
-$connect_string[pgsql://oxynger:12345@localhost:5432/p3test]
+$connect_string[pgsql://oxynger:12345@178.128.35.206:5432/p3test]
 
 @main[]
 ^header[]

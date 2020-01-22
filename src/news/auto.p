@@ -65,7 +65,7 @@ $days[^date:calendar[rus]($now.year;$now.month)]
             }{         
             <td align="center" bgcolor="#FFFFFF">
                <font color="$calendar_locale.day_colors.$week_day">
-               $days.$week_day
+               <a href="/news/?day=$days.$week_day">$days.$week_day</a>
                </font>
             </td>
             }
