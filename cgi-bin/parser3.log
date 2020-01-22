@@ -1,3 +1,0 @@
-[Mon Jan 20 12:06:00 2020] [92] /: /usr/local/apache2/htdocs/auto.p(8:18): 'navigation_cell' undefined method [parser.runtime] [uri=/, method=GET, cl=0]
-[Mon Jan 20 12:06:15 2020] [93] /: /usr/local/apache2/htdocs/auto.p(8:18): 'navigation_cell' undefined method [parser.runtime] [uri=/, method=GET, cl=0]
-[Mon Jan 20 12:06:47 2020] [92] /: /usr/local/apache2/htdocs/auto.p(8:18): 'navigation_cell' undefined method [parser.runtime] [uri=/, method=GET, cl=0]

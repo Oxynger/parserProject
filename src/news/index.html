@@ -1,0 +1,35 @@
+@greeting[]
+Страница новостей, заходите чаще!
+
+@body_additional[]
+<center>Архив новостей за текущий месяц:</center>
+<br />
+^calendar[]
+
+@body_main[]
+$now[^date::now[]]
+<b>
+    <h1>НОВОСТИ</h1>
+</b>
+$day(^if(def $form:day){
+$form:day
+}{
+$now.day
+})
+^connect[$connect_string]{
+$news[^table::sql{select
+date, header, body
+from
+news
+where
+date='${now.year}-${now.month}-$day'
+}]
+^if($news){
+^news.menu{
+<b>$news.date - $news.header</b><br />
+^untaint{$news.body}<br />
+}[<br />]
+}{
+За указанный период новостей не найдено.
+}
+}

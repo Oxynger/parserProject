@@ -1,13 +1,73 @@
+@auto[]
+$connect_string[pgsql://oxynger:12345@localhost:5432/p3test]
+
 @main[]
+^header[]
+^body[]
+^footer[]
 
 @navigation[]
-$routes[^table::load[routes.cfg]]
-<table border="1" width="100%" >
-	<tr>
+$routes[^table::load[/routes.cfg]]
+<table width="100%" border="0" bgcolor="#000000" cellspacing="1">
+   <tr  bgcolor="#FFFFFF">
    ^routes.menu{
-		^navigation_cell[]
+      ^navigation_cell[]
    }
    </tr>
 </table>
-
 <br />
+
+@navigation_cell[]
+$cell_width[^eval(100\$routes)%]
+^if($routes.uri eq $request:uri){
+   <td width="$cell_width" align="center" bgcolor="#A2D0F2"> 
+   <nobr>$routes.name</nobr>
+   </td>
+}{
+   <td width="$cell_width" align="center"> 
+   <a href="$routes.uri"><nobr>$routes.name</nobr></a>
+   </td>
+}
+
+@body[]
+^navigation[]
+<table width="100%" height="65%" border="0" bgcolor="#000000" cellspacing="1">
+   <tr  bgcolor="#ffffff" height="100%">
+      <td width="30%" valign="top" bgcolor="#EFEFEF">
+         <b>^body_additional[]</b>
+      </td>
+      <td width="70%" valign="top">
+         ^body_main[]
+      </td>
+   </tr>
+</table>
+<br />
+
+
+@header[]
+<html>
+<head>
+<title>Тестовый сайт Parser3</title>
+</head>
+<body bgcolor="#FAEBD7">
+<table width="100%" border="0" bgcolor="#000000" cellspacing="1">
+   <tr  bgcolor="#FFFFFF" height="60">
+      <td align="center">
+         <font size="+2"> <b>^greeting[]</b></font>
+      </td>
+   </tr>
+</table>
+<br />
+
+@footer[]
+<table width="100%" border="0" bgcolor="#000000" cellspacing="0">
+   <tr>
+      <td></td>
+   </tr>
+</table>
+$now[^date::now[]]
+<font size="-3">
+<center>Powered by Parser3<br />1997-$now.year</center>
+</font>
+</body>
+</html>

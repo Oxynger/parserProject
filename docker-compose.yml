@@ -9,3 +9,12 @@ services:
       - ./src:/usr/local/apache2/htdocs
       - ./my-httpd.conf:/usr/local/apache2/conf/httpd.conf
       - ./cgi-bin/:/usr/local/apache2/cgi-bin/
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: oxynger
+      POSTGRES_PASSWORD: 12345
+    volumes:
+      - /var/constainers/postgres/data:/var/lib/postgresql/data
+  

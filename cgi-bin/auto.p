@@ -18,9 +18,9 @@ $CHARSETS[
 #or use $sqldriversdir/system/ path to use the supplied client library
 $SQL[
 	$.drivers[^table::create{protocol	driver	client
-mysql	$sqldriversdir/libparser3mysql.so	libmysqlclient.so
+mysql	$sqldriversdir/libparser3mysql.so	$sqldriversdir/system/libmysqlclient.so
 #sqlite	$sqldriversdir/libparser3sqlite.so	sqlite3.so
-#pgsql	$sqldriversdir/libparser3pgsql.so	libpq.so
+pgsql	$sqldriversdir/libparser3pgsql.so	$sqldriversdir/system/libpq.so
 #oracle	$sqldriversdir/libparser3oracle.so	libclntsh.so
 }]
 ]
