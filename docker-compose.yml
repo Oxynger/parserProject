@@ -17,4 +17,5 @@ services:
       POSTGRES_PASSWORD: 12345
     volumes:
       - /var/constainers/postgres/data:/var/lib/postgresql/data
-  
+    ports:
+      - 5432:5432
