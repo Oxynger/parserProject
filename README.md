@@ -2,4 +2,4 @@
 - Create folder `/var/constainers/postgres/data`
 
 
-- Execute command `$docker-compose build --up` into root of repo folder 
+- Execute command `$docker-compose up --build` into root of repo folder 
