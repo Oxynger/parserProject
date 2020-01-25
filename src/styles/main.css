@@ -1,0 +1,8 @@
+.article-preview{
+    cursor: pointer;
+    background-color: #ffffff;
+}
+.edit-button{
+    color: #ff1;
+    float: right;
+}

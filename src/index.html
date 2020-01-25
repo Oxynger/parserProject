@@ -1,11 +1,44 @@
 @greeting[]
-Добро пожаловать
-
-@body_additional[]
 Главная страница сайта
 
-@body_main[]
-Основное содержание
+@body_additional[]
+Добро пожаловать на новостной портал
+<hr />
+<center>Архив новостей за текущий месяц:</center>
+<br />
+^calendar[]
+<button onclick="location.href='/addNews'">Добавить новость</button>
 
+
+@body_main[]
+$now[^date::now[]]
+<b>
+    <h1>НОВОСТИ</h1>
+</b>
+$day(^if(def $form:day){
+$form:day
+}{
+$now.day
+})
+^connect[$connect_string]{
+$news[^table::sql{select
+id, date, header, body
+from
+news
+where
+date='${now.year}-${now.month}-$day'
+}]
+^if($news){
+^news.menu{
+<div id="$news.id" onclick="location.href='/news/?id=$news.id'" class="article-preview">
+    <b>$news.date - $news.header</b><br />
+    ^untaint{$news.body}<br />
+</div>
+<br />
+}
+}{
+За указанный период новостей не найдено.
+}
+}
 @footer[]
 Здесь у нас контакты
