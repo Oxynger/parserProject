@@ -24,7 +24,7 @@ $connect_string[pgsql://oxynger:12345@178.128.35.206:5432/p3test]
 <html>
 <head>
 
-   <link rel='stylesheet' type='text/css' media='screen' href='/styles/main.css'>
+   <link rel='stylesheet' type='text/css' media='screen' href='/css/main.css'>
    <title>Тестовый сайт Parser3</title>
 </head>
 <body bgcolor="#FAEBD7">

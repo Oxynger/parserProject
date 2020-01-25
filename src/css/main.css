@@ -3,6 +3,7 @@
     background-color: #ffffff;
 }
 .edit-button{
-    color: #ff1;
+    background-color: bisque;
+    border: 2px solid rosybrown;
     float: right;
 }

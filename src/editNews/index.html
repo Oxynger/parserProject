@@ -1,0 +1,52 @@
+@greeting[]
+Администрирование новостей
+
+@body_additional[]
+Добавление новостей
+
+@body_main[]
+$now[^date::now[]]
+
+$news[
+    ^if(def $form:id){
+        ^dbconnect{
+            ^table::sql{
+                select
+                id, body, header, date
+                from
+                news
+                where id=${form:id}
+            }
+        }
+    }
+]
+
+<center>
+    <form method="POST">
+        <p>
+            Date: <input name="date" value="${news.date}">
+            Header: <input name="header" value="${news.header}">
+        </p>
+        <p>Body:<br />
+            <textarea cols="50" name="body" rows="5" >${news.body}</textarea>
+        </p>
+        <p>
+            <input type="submit" value="Save news" name="posted">
+            <input type="reset" value="Clear">
+        </p>
+    </form>
+
+    ^if(def $form:date && def $form:header && def $form:body){
+    ^connect[$connect_string]{
+    ^void:sql{UPDATE news SET
+        body='${form:body}',
+        header='${form:header}'
+        WHERE
+        id=${form:id}
+    }
+    …сообщение обновлено
+    }
+    }{
+    …для обновления новости необходимо заполнить все поля формы
+    }
+</center>
