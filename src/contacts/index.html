@@ -1,0 +1,14 @@
+@body_main[]
+$contacts[
+    $.Github[https://github.com/Oxynger]
+    $.VK[https://vk.com/id80410981]
+    $.Phone[+7-(904)-409-42-06]
+]
+^contacts.foreach[key;value]{
+    ^if(^value.match[https]){
+        <p><span class="contact-name">${key}</span>: <a href="${value}">${value}</a></p>
+    }{
+        <p><span class="contact-name">${key}</span>: ${value}</p>
+           
+    }    
+}

@@ -17,15 +17,7 @@ $now[^date::now[]]
     </form>
 
     ^if(def $form:date && def $form:header && def $form:body){
-    ^dbconnect{
-    ^void:sql{insert into news
-    (date, header, body)
-    values
-    ('$form:date', '$form:header', '$form:body')
-    }
-    }
-
-    ^refresh[/admin]
+    ^refresh[/]
     }
     ^if(def $form:posted){
     …для добавления новости необходимо заполнить все поля формы

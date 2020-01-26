@@ -3,6 +3,8 @@ version: '3'
 services:
   apache:
     image: httpd:2.4
+    env_file: 
+      - .env
     ports:
       - 1323:80
     volumes:
@@ -12,9 +14,8 @@ services:
     
   db:
       image: postgres
-      environment:
-        POSTGRES_USER: oxynger
-        POSTGRES_PASSWORD: 12345
+      env_file: 
+        - .env
       volumes:
         - /var/constainers/postgres/data:/var/lib/postgresql/data
       ports:

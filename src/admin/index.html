@@ -2,7 +2,14 @@
 /classes/db.p
 
 @body_main[]
+<a class="button-add-news" href="/addNews">Добавить</a>
 $news[^db::selectAll[]]
+^if(def $form:delete){
+^db:delete[$form:delete]
+
+^refresh[/admin]
+}
+
 ^if($news){
 ^news.menu{
 <div id="$news.id" class="article-preview">
@@ -13,7 +20,13 @@ $news[^db::selectAll[]]
         </a>
     </h3>
     <p class="article-preview-text">^untaint{$news.body}</p>
+    <div class="article-preview-controls">
+        <a href="/editNews/?id=$news.id">редактировать</a>
+        <a href="/admin/?delete=$news.id">удалить</a>
+    </div>
 </div>
 }
 
+}{
+За указанный период новостей не найдено.
 }
